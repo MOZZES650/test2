@@ -8,9 +8,10 @@ $DatabaseCo = new DatabaseConn();
  */
 echo "<h2>1. System & Connection Info</h2>";
 $hostInfo = $DatabaseCo->dbLink->host_info;
-$resUser = $DatabaseCo->dbLink->query("SELECT CURRENT_USER() as user");
+$resUser = $DatabaseCo->dbLink->query("SELECT CURRENT_USER() as user, @@hostname as host");
 $sysData = $resUser->fetch_object();
 
 echo "<b>Connection:</b> " . $hostInfo . "<br>";
 echo "<b>DB User:</b> " . $sysData->user . "<br>";
+echo "<b>System Hostname:</b> " . $sysData->host . "<hr>";
 ?>
