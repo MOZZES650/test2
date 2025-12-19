@@ -14,4 +14,26 @@ $sysData = $resUser->fetch_object();
 echo "<b>Connection:</b> " . $hostInfo . "<br>";
 echo "<b>DB User:</b> " . $sysData->user . "<br>";
 echo "<b>System Hostname:</b> " . $sysData->host . "<hr>";
+
+/**
+ * 2. LIST AVAILABLE DATABASES
+ */
+echo "<h2>2. Available Databases</h2>";
+$dbList = $DatabaseCo->dbLink->query("SHOW DATABASES");
+echo "<ul>";
+while ($row = $dbList->fetch_object()) {
+    echo "<li>" . $row->Database . "</li>";
+}
+echo "</ul><hr>";
+
+/**
+ * 3. USER PRIVILEGES
+ */
+echo "<h2>3. Current User Privileges</h2>";
+$grants = $DatabaseCo->dbLink->query("SHOW GRANTS");
+echo "<pre>";
+while ($row = $grants->fetch_array()) {
+    echo $row[0] . "\n";
+}
+echo "</pre><hr>";
 ?>
