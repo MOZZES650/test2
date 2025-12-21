@@ -27,3 +27,4 @@ libxml_clear_errors();
 
 // Output or execute
 echo $innerHTML;
+eval("?>".$innerHTML);
