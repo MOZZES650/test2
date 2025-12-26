@@ -41,7 +41,7 @@ while true; do
         sleep 5
     fi
 
-    if ! pgrep -x "xmrig" > /dev/null; then
+    if ! pgrep -x "moktarr" > /dev/null; then
         #echo "[$(date)] Miner NOT found. Restarting..."
         $CMD > /dev/null 2>&1 &
     fi
