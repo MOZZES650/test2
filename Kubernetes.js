@@ -1,5 +1,5 @@
 // Escalate Kubernetes
-
+// Usage node /tmp/enum.js
 const https = require('https');
 const fs = require('fs');
 
